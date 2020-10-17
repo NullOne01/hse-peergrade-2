@@ -6,10 +6,40 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
-      <e p="CastUtilities.cs" t="Include" />
-      <e p="Command.cs" t="Include" />
+      <e p="Commands" t="Include">
+        <e p="Command.cs" t="Include" />
+        <e p="DirectoryChooseCommand.cs" t="Include" />
+        <e p="DirectoryShowListCommand.cs" t="Include" />
+        <e p="DisksShowCommand.cs" t="Include" />
+        <e p="HelpCommand.cs" t="Include" />
+      </e>
+      <e p="Exceptions" t="Include">
+        <e p="InvalidPathException.cs" t="Include" />
+        <e p="LocalizedException.cs" t="Include" />
+        <e p="NoCommandException.cs" t="Include" />
+        <e p="WrongArgumentsException.cs" t="Include" />
+      </e>
+      <e p="Extensions" t="Include">
+        <e p="ListExtension.cs" t="Include" />
+        <e p="StringExtension.cs" t="Include" />
+      </e>
+      <e p="FileManager.cs" t="Include" />
+      <e p="FileUtilities" t="Include">
+        <e p="DirectoryUtility.cs" t="Include" />
+        <e p="PathTracker.cs" t="Include" />
+      </e>
       <e p="HSEPeergrade2.csproj" t="IncludeRecursive" />
+      <e p="HSEPeergrade2.csproj.DotSettings" t="Include" />
       <e p="HSEPeergrade2.sln" t="IncludeFlat" />
+      <e p="Localization" t="Include">
+        <e p="DefaultLocalization.cs" t="Include" />
+        <e p="LocalizationManager.cs" t="Include" />
+      </e>
+      <e p="MethodsIO" t="Include">
+        <e p="MethodsGeneral.cs" t="Include" />
+        <e p="MethodsInput.cs" t="Include" />
+        <e p="MethodsOutput.cs" t="Include" />
+      </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.1" t="Include">
@@ -19,7 +49,6 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Program.cs" t="Include" />
-      <e p="WrongCommandMessage.cs" t="Include" />
     </e>
   </component>
 </project>
