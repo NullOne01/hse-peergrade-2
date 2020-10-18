@@ -11,10 +11,12 @@
         <e p="DirectoryChooseCommand.cs" t="Include" />
         <e p="DirectoryShowListCommand.cs" t="Include" />
         <e p="DisksShowCommand.cs" t="Include" />
+        <e p="FileCopyCommand.cs" t="Include" />
         <e p="FilePrintCommand.cs" t="Include" />
         <e p="HelpCommand.cs" t="Include" />
       </e>
       <e p="Exceptions" t="Include">
+        <e p="AccessException.cs" t="Include" />
         <e p="InvalidEncodingException.cs" t="Include" />
         <e p="InvalidPathException.cs" t="Include" />
         <e p="LocalizedException.cs" t="Include" />
