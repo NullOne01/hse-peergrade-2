@@ -6,9 +6,5 @@ namespace HSEPeergrade2
         {
             
         }
-
-        public InvalidEncodingException(string msg) : base(msg)
-        {
-        }
     }
 }

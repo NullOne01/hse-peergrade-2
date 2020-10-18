@@ -84,6 +84,11 @@ namespace HSEPeergrade2
             Console.WriteLine(LocalizationManager.getInstance().GetLocalizedValue(key, args));
         }
 
+        /// <summary>
+        /// Printing file on <paramref name="path"/> using <paramref name="encoding"/>
+        /// </summary>
+        /// <param name="path"> Path of the file. </param>
+        /// <param name="encoding"> Encoding to use to print. </param>
         public static void PrintFileEncoding(string path, Encoding encoding)
         {
             string[] fileLines = File.ReadAllLines(path, encoding);

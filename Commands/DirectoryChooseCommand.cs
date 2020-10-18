@@ -7,17 +7,10 @@ namespace HSEPeergrade2.Commands
 {
     public class DirectoryChooseCommand : Command
     {
-        //Example for regex: cd "example.txt"
-        private string fullRegStr = "^{0} \"[^\"]*\"$";
-
-        //Example for regex: ""
-        private string quotesRegStr = "\".*\"";
-
         private string newPath = "";
 
         public DirectoryChooseCommand(string name) : base(name)
         {
-            fullRegStr = fullRegStr.BetterFormat(name);
         }
 
         public override void Execute()
@@ -27,9 +20,7 @@ namespace HSEPeergrade2.Commands
 
         public override void TakeParameters(string line)
         {
-            string path = Regex.Match(line, quotesRegStr).Value;
-            // Removing quotes.
-            path = path.RemoveFirstLast();
+            string path = ParsingUtilities.GetQuoteOneArgument(line);
             newPath = path;
         }
 
@@ -37,7 +28,7 @@ namespace HSEPeergrade2.Commands
         {
             try
             {
-                if (!Regex.IsMatch(line, fullRegStr))
+                if (!ParsingUtilities.HasOneParam(name, line))
                 {
                     return false;
                 }
@@ -50,9 +41,7 @@ namespace HSEPeergrade2.Commands
             string path;
             try
             {
-                path = Regex.Match(line, quotesRegStr).Value;
-                // Removing quotes.
-                path = path.RemoveFirstLast();
+                path = ParsingUtilities.GetQuoteOneArgument(line);
             }
             catch (RegexMatchTimeoutException)
             {

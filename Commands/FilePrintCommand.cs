@@ -6,24 +6,14 @@ using HSEPeergrade2.FileUtilities;
 
 namespace HSEPeergrade2.Commands
 {
-    public class PrintFileCommand : Command
+    public class FilePrintCommand : Command
     {
-        //Example for regex: printFile "example.txt" "UTF-8"
-        private string fullRegStr1 = "^{0} \"[^\"]*\"$";
-
-        //Example for regex: printFile "example.txt" "UTF-8"
-        private string fullRegStr2 = "^{0} \"[^\"]*\" \"[^\"]*\"$";
-
-        //Example for regex: ""
-        private string quotesRegStr = "\".*?\"";
-
         private string filePath;
-        private Encoding currentEncoding = Encoding.UTF8;
+        private static readonly Encoding defaultEncoding = Encoding.UTF8;
+        private Encoding currentEncoding = defaultEncoding;
 
-        public PrintFileCommand(string name) : base(name)
+        public FilePrintCommand(string name) : base(name)
         {
-            fullRegStr1 = string.Format(fullRegStr1, name);
-            fullRegStr2 = string.Format(fullRegStr2, name);
         }
 
         public override void Execute()
@@ -34,13 +24,18 @@ namespace HSEPeergrade2.Commands
         public override void TakeParameters(string line)
         {
             // First argument in quotes (path).
-            filePath = Regex.Matches(line, quotesRegStr)[0].Value.RemoveFirstLast();
+            filePath = ParsingUtilities.GetQuoteArguments(line)[0];
 
-            if (Regex.IsMatch(line, fullRegStr2))
+            // Read user's typed encoding. Otherwise use default encoding.
+            if (ParsingUtilities.HasTwoParam(name, line))
             {
                 // Second argument in quotes (encoding).
-                string encodingStr = Regex.Matches(line, quotesRegStr)[1].Value.RemoveFirstLast();
+                string encodingStr = ParsingUtilities.GetQuoteArguments(line)[1];
                 currentEncoding = EncodingUtilities.dictStrEncoding[encodingStr];
+            }
+            else
+            {
+                currentEncoding = defaultEncoding;
             }
         }
 
@@ -48,8 +43,8 @@ namespace HSEPeergrade2.Commands
         {
             try
             {
-                if (!(Regex.IsMatch(line, fullRegStr1) ||
-                      Regex.IsMatch(line, fullRegStr2)))
+                if (!(ParsingUtilities.HasOneParam(name, line) ||
+                      ParsingUtilities.HasTwoParam(name, line)))
                 {
                     return false;
                 }
@@ -62,25 +57,25 @@ namespace HSEPeergrade2.Commands
             string path;
             try
             {
-                MatchCollection matchesQuotes = Regex.Matches(line, quotesRegStr);
+                string[] arguments = ParsingUtilities.GetQuoteArguments(line);
                 // User has not specified encoding.
-                if (Regex.IsMatch(line, fullRegStr1))
+                if (ParsingUtilities.HasOneParam(name, line))
                 {
-                    if (matchesQuotes.Count != 1)
+                    if (arguments.Length != 1)
                         return false;
                 }
                 else
                 {
-                    if (matchesQuotes.Count != 2)
+                    if (arguments.Length != 2)
                         return false;
 
                     // Trying to find specified encoding.
-                    var encodingStr = matchesQuotes[1].Value.RemoveFirstLast();
+                    var encodingStr = arguments[1];
                     if (!EncodingUtilities.dictStrEncoding.ContainsKey(encodingStr))
                         throw new InvalidEncodingException();
                 }
 
-                path = matchesQuotes[0].Value.RemoveFirstLast();
+                path = arguments[0];
             }
             catch (RegexMatchTimeoutException)
             {

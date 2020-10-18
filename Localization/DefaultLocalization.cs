@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace HSEPeergrade2.Localization
 {
+    /// <summary>
+    /// Class of default localization text. English text.
+    /// </summary>
     public class DefaultLocalization
     {
         public Dictionary<string, string> formatDict = new Dictionary<string, string>()

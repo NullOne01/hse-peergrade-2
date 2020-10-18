@@ -35,7 +35,7 @@ namespace HSEPeergrade2
             commandsDict.Add("diskShow", new DisksShowCommand("diskShow"));
             commandsDict.Add("cd", new DirectoryChooseCommand("cd"));
             commandsDict.Add("ls", new DirectoryShowListCommand("ls"));
-            commandsDict.Add("printFile", new PrintFileCommand("printFile"));
+            commandsDict.Add("printFile", new FilePrintCommand("printFile"));
         }
 
         /// <summary>
