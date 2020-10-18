@@ -12,8 +12,10 @@
         <e p="DirectoryShowListCommand.cs" t="Include" />
         <e p="DisksShowCommand.cs" t="Include" />
         <e p="HelpCommand.cs" t="Include" />
+        <e p="PrintFileCommand.cs" t="Include" />
       </e>
       <e p="Exceptions" t="Include">
+        <e p="InvalidEncodingException.cs" t="Include" />
         <e p="InvalidPathException.cs" t="Include" />
         <e p="LocalizedException.cs" t="Include" />
         <e p="NoCommandException.cs" t="Include" />
@@ -26,6 +28,7 @@
       <e p="FileManager.cs" t="Include" />
       <e p="FileUtilities" t="Include">
         <e p="DirectoryUtility.cs" t="Include" />
+        <e p="EncodingUtilities.cs" t="Include" />
         <e p="PathTracker.cs" t="Include" />
       </e>
       <e p="HSEPeergrade2.csproj" t="IncludeRecursive" />

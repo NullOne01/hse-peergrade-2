@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Text;
 using HSEPeergrade2.Extensions;
 using HSEPeergrade2.Localization;
 
@@ -80,6 +82,13 @@ namespace HSEPeergrade2
         public static void PrintLocalStringLine(string key, params object[] args)
         {
             Console.WriteLine(LocalizationManager.getInstance().GetLocalizedValue(key, args));
+        }
+
+        public static void PrintFileEncoding(string path, Encoding encoding)
+        {
+            string[] fileLines = File.ReadAllLines(path, encoding);
+            PrintArray(fileLines);
+            SkipLine();
         }
     }
 }

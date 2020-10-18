@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace HSEPeergrade2.Localization
@@ -13,7 +14,14 @@ namespace HSEPeergrade2.Localization
         {
             {"TEST", "TEST. "},
             {"UNDEFINED", "Undefined. "},
-            {"HELP", "POMOGITE BLYAT. "},
+            {"HELP", "help - print this menu." + Environment.NewLine +
+                     "diskShow - show all disks. " + Environment.NewLine +
+                     "cd \"PATH\" - choose current directory. " + Environment.NewLine +
+                     "ls - show list of files and directories. " + Environment.NewLine + 
+                     "printFile \"PATH\" - print file with encoding UTF-8" + Environment.NewLine +
+                     "printFile \"PATH\" \"UTF-8/UTF-7/UTF-32/ASCII\" - " +
+                     "print file with chosen encoding(UTF-8/UTF-7/UTF-32/ASCII)"
+            },
             {"WRONG_ARGUMENTS", "Error: wrong arguments. "},
             {"WRONG_ARGUMENTS_IO", "Error: directory is invalid."},
             {"NO_COMMAND", "Error: unknown command. "},
@@ -22,7 +30,8 @@ namespace HSEPeergrade2.Localization
             {"DIRECTORIES", "Directories: "},
             {"FILES", "Files: "},
             {"NO_DIRECTORIES", "No directories here. "},
-            {"NO_FILES", "No files here. "}
+            {"NO_FILES", "No files here. "},
+            {"INVALID_ENCODING", "Error: unknown encoding. "}
         };
     }
 }

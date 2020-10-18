@@ -59,7 +59,7 @@ namespace HSEPeergrade2.Commands
                 return false;
             }
 
-            if (!PathTracker.IsPathValid(path))
+            if (!PathTracker.IsDirPathValid(path))
             {
                 throw new InvalidPathException();
             }

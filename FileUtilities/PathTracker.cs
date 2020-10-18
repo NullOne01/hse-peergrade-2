@@ -27,7 +27,7 @@ namespace HSEPeergrade2.FileUtilities
 
         public void SetUpPath(string path)
         {
-            currenPath = Path.GetFullPath(Path.Combine(currenPath, path));
+            currenPath = CombineRelativePath(path);
         }
 
         public void SetUpFullPath(string path)
@@ -35,17 +35,27 @@ namespace HSEPeergrade2.FileUtilities
             currenPath = path;
         }
 
-        public static bool IsFullPathValid(string path)
+        public static bool IsDirFullPathValid(string path)
         {
             return Directory.Exists(path);
         }
 
-        public static bool IsPathValid(string path)
+        public static bool IsDirPathValid(string path)
         {
-            string newPath = Path.GetFullPath(Path.Combine(currenPath, path));
+            string newPath = CombineRelativePath(path);
             return Directory.Exists(newPath);
         }
+        public static bool IsFilePathValid(string path)
+        {
+            string newPath = CombineRelativePath(path);
+            return File.Exists(newPath);
+        }
 
+        public static string CombineRelativePath(string relativePath)
+        {
+            return Path.GetFullPath(Path.Combine(currenPath, relativePath));
+        }
+        
         public override string ToString()
         {
             return currenPath;

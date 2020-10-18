@@ -23,7 +23,7 @@ namespace HSEPeergrade2.Commands
             {
                 MethodsOutput.PrintLocalStringLine("NO_DIRECTORIES");
             }
-
+            MethodsOutput.SkipLine();
             MethodsOutput.PrintLocalStringLine("FILES");
             if (fileNamesArr.Length > 0)
             {
