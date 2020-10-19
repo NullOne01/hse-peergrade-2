@@ -15,6 +15,7 @@
         <e p="FileMoveCommand.cs" t="Include" />
         <e p="FilePrintCommand.cs" t="Include" />
         <e p="HelpCommand.cs" t="Include" />
+        <e p="LocalizationChangeCommand.cs" t="Include" />
       </e>
       <e p="Exceptions" t="Include">
         <e p="AccessException.cs" t="Include" />

@@ -30,6 +30,7 @@ namespace HSEPeergrade2.Localization
             {"WRONG_ARGUMENTS", "Error: wrong arguments. "},
             {"WRONG_ARGUMENTS_IO", "Error: directory is invalid."},
             {"FILE_NOT_FOUND", "Error: file is not found."},
+            {"DIR_NOT_FOUND", "Error: directory is not found."},
             {"NO_COMMAND", "Error: unknown command. "},
             {"INVALID_PATH", "Error: invalid path. "},
             {"COPY_FILE_DOESNT_EXIST", "Error: copy file doesn't exist. "},

@@ -1,9 +1,17 @@
+using System;
 using System.IO;
+using System.Text.RegularExpressions;
+using HSEPeergrade2.FileUtilities;
 
 namespace HSEPeergrade2.Commands
 {
     public class DisksShowCommand : Command
     {
+        public DisksShowCommand(string name) : base(name)
+        {
+            this.name = name;
+        }
+
         public override void Execute()
         {
             string[] drives = Directory.GetLogicalDrives();
@@ -16,12 +24,31 @@ namespace HSEPeergrade2.Commands
 
         public override bool ValidateParams(string line)
         {
-            return true;
-        }
+            // Checking if command was written without params.
+            try
+            {
+                if (!ParsingUtilities.HasNoParam(name, line))
+                    return false;
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
 
-        public DisksShowCommand(string name) : base(name)
-        {
-            this.name = name;
+            // Checking if getting logical drives if possible.
+            try
+            {
+                Directory.GetLogicalDrives();
+                return true;
+            }
+            catch (IOException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw new AccessException();
+            }
         }
     }
 }

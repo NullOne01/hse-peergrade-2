@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+using HSEPeergrade2.FileUtilities;
 using HSEPeergrade2.Localization;
 
 namespace HSEPeergrade2
@@ -21,8 +23,14 @@ namespace HSEPeergrade2
 
         public override bool ValidateParams(string line)
         {
-            return true;
-            //throw new System.NotImplementedException();
+            try
+            {
+                return ParsingUtilities.HasNoParam(name, line);
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
         }
     }
 }

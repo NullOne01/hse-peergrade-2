@@ -5,7 +5,10 @@ namespace HSEPeergrade2.FileUtilities
 {
     public class ParsingUtilities
     {
-        //Example for regex: printFile "example.txt" "UTF-8"
+        //Example for regex: printFile
+        private static string fullRegStr0 = "^{0}$";
+        
+        //Example for regex: printFile "example.txt"
         private static string fullRegStr1 = "^{0} \"[^\"]*\"$";
 
         //Example for regex: printFile "example.txt" "UTF-8"
@@ -14,6 +17,18 @@ namespace HSEPeergrade2.FileUtilities
         //Example for regex: ""
         private static string quotesRegStr = "\".*?\"";
 
+        /// <summary>
+        /// Command passes no parameters?
+        /// </summary>
+        /// <param name="commandName"> Command name. </param>
+        /// <param name="line"> Command line. </param>
+        /// <returns> True if command line passes no parameters. Otherwise false. </returns>
+        public static bool HasNoParam(string commandName, string line)
+        {
+            string modifiedStr = fullRegStr0.BetterFormat(commandName);
+            return Regex.IsMatch(line, modifiedStr);
+        }
+        
         /// <summary>
         /// Command passes only 1 parameter?
         /// </summary>

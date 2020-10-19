@@ -1,4 +1,5 @@
 using System.IO;
+using System.Text.RegularExpressions;
 using HSEPeergrade2.FileUtilities;
 
 namespace HSEPeergrade2.Commands
@@ -23,7 +24,9 @@ namespace HSEPeergrade2.Commands
             {
                 MethodsOutput.PrintLocalStringLine("NO_DIRECTORIES");
             }
+
             MethodsOutput.SkipLine();
+            
             MethodsOutput.PrintLocalStringLine("FILES");
             if (fileNamesArr.Length > 0)
             {
@@ -41,11 +44,21 @@ namespace HSEPeergrade2.Commands
 
         public override bool ValidateParams(string line)
         {
-            if (PathTracker.GetInstance().ToString() == "")
+            // Checking if command was written without params.
+            try
             {
-                throw new InvalidPathException();
+                if (!ParsingUtilities.HasNoParam(name, line))
+                    return false;
             }
-            
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+
+            // Checking if getting directories and files is possible.
+            DirectoryUtilities.GetDirectoriesNames(PathTracker.GetInstance().ToString());
+            DirectoryUtilities.GetFileNames(PathTracker.GetInstance().ToString());
+
             return true;
         }
     }

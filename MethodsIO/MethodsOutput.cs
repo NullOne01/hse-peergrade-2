@@ -3,6 +3,7 @@ using System.IO;
 using System.Security;
 using System.Text;
 using HSEPeergrade2.Extensions;
+using HSEPeergrade2.FileUtilities;
 using HSEPeergrade2.Localization;
 
 namespace HSEPeergrade2
@@ -23,7 +24,7 @@ namespace HSEPeergrade2
                 PrintString(element + separator);
             }
         }
-        
+
         /// <summary>
         /// Printing <paramref name="arr"/> elements into the console.
         /// Elements are separated by NewLine character.
@@ -44,7 +45,7 @@ namespace HSEPeergrade2
         {
             Console.Write(line.BetterFormat(args));
         }
-        
+
         /// <summary>
         /// <inheritdoc cref="PrintString"/>
         /// Skips line after.
@@ -73,7 +74,7 @@ namespace HSEPeergrade2
         {
             Console.Write(LocalizationManager.getInstance().GetLocalizedValue(key, args));
         }
-        
+
         /// <summary>
         /// <inheritdoc cref="PrintLocalString"/>
         /// Skips line after.
@@ -98,36 +99,11 @@ namespace HSEPeergrade2
         /// </summary>
         /// <param name="path"></param>
         /// <param name="encoding"></param>
-        /// <exception cref="InvalidPathException"> Localized invalid path exception. </exception>
-        /// <exception cref="AccessException"> Localized no access exception. </exception>
         public static void PrintFileEncoding(string path, Encoding encoding)
         {
-            try
-            {
-                string[] fileLines = File.ReadAllLines(path, encoding);
-                PrintArray(fileLines);
-                SkipLine();
-            }
-            catch (ArgumentException)
-            {
-                throw new InvalidPathException();
-            }
-            catch (FileNotFoundException)
-            {
-                throw new InvalidPathException("FILE_NOT_FOUND");
-            }
-            catch (IOException)
-            {
-                throw new InvalidPathException();
-            }
-            catch (SecurityException)
-            {
-                throw new AccessException();
-            }
-            catch (UnauthorizedAccessException)
-            {
-                throw new AccessException();
-            }
+            string[] fileLines = DirectoryUtilities.FileReadLines(path, encoding);
+            PrintArray(fileLines);
+            SkipLine();
         }
     }
 }

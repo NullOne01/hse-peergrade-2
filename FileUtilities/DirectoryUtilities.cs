@@ -1,42 +1,141 @@
 using System;
 using System.IO;
+using System.Security;
+using System.Text;
 
 namespace HSEPeergrade2.FileUtilities
 {
     public static class DirectoryUtilities
     {
         /// <summary>
-        /// Get all file names in <paramref name="path"/>
+        /// Get all file names in directory (<paramref name="path"/>).
         /// </summary>
         /// <param name="path"> Path where we search for file names. </param>
         /// <returns> File names. </returns>
+        /// <exception cref="InvalidPathException"> Localized invalid path exception. </exception>
+        /// <exception cref="AccessException"> Localized no access exception. </exception>
         public static string[] GetFileNames(string path)
         {
-            string[] fileArr = Directory.GetFiles(path);
-            for (int i = 0; i < fileArr.Length; i++)
+            try
             {
-                fileArr[i] = Path.GetFileName(fileArr[i]);
-            }
+                string[] fileArr = Directory.GetFiles(path);
+                for (int i = 0; i < fileArr.Length; i++)
+                {
+                    fileArr[i] = Path.GetFileName(fileArr[i]);
+                }
 
-            return fileArr;
+                return fileArr;
+            }
+            catch (ArgumentException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                throw new InvalidPathException("DIR_NOT_FOUND");
+            }
+            catch (IOException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (SecurityException)
+            {
+                throw new AccessException();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw new AccessException();
+            }
         }
-        
+
         /// <summary>
-        /// Get all directory names in <paramref name="path"/>
+        /// Get all directory names in directory (<paramref name="path"/>).
         /// </summary>
         /// <param name="path"> Path where we search for directory names. </param>
         /// <returns> Directory names. </returns>
+        /// <exception cref="InvalidPathException"> Localized invalid path exception. </exception>
+        /// <exception cref="AccessException"> Localized no access exception. </exception>
         public static string[] GetDirectoriesNames(string path)
         {
-            string[] fileArr = Directory.GetDirectories(path);
-            for (int i = 0; i < fileArr.Length; i++)
+            try
             {
-                fileArr[i] = Path.GetFileName(fileArr[i]);
-            }
+                string[] fileArr = Directory.GetDirectories(path);
+                for (int i = 0; i < fileArr.Length; i++)
+                {
+                    fileArr[i] = Path.GetFileName(fileArr[i]);
+                }
 
-            return fileArr;
+                return fileArr;
+            }
+            catch (ArgumentException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                throw new InvalidPathException("DIR_NOT_FOUND");
+            }
+            catch (IOException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (SecurityException)
+            {
+                throw new AccessException();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw new AccessException();
+            }
         }
 
+        /// <summary>
+        /// Reads file (<paramref name="path"/>) by lines using <paramref name="encoding"/>.
+        /// </summary>
+        /// <param name="path"> Path to file. </param>
+        /// <param name="encoding"> Chosen encoding to read. </param>
+        /// <returns> Lines of file. </returns>
+        /// <exception cref="InvalidPathException"> Localized invalid path exception. </exception>
+        /// <exception cref="AccessException"> Localized no access exception. </exception>
+        public static string[] FileReadLines(string path, Encoding encoding)
+        {
+            try
+            {
+                return File.ReadAllLines(path, encoding);
+            }
+            catch (ArgumentException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (FileNotFoundException)
+            {
+                throw new InvalidPathException("FILE_NOT_FOUND");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                throw new InvalidPathException("DIR_NOT_FOUND");
+            }
+            catch (IOException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (SecurityException)
+            {
+                throw new AccessException();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw new AccessException();
+            }
+        }
+
+        /// <summary>
+        /// Moves file (<paramref name="pathFromFile"/>) to directory (<paramref name="pathToDir"/>).
+        /// </summary>
+        /// <param name="pathFromFile"> File that will be moved. </param>
+        /// <param name="pathToDir"> Destination folder to move file. </param>
+        /// <exception cref="InvalidPathException"> Localized invalid path exception. </exception>
+        /// <exception cref="AccessException"> Localized no access exception. </exception>
         public static void MoveFileToDir(string pathFromFile, string pathToDir)
         {
             try
@@ -59,7 +158,7 @@ namespace HSEPeergrade2.FileUtilities
             }
             catch (DirectoryNotFoundException)
             {
-                throw new InvalidPathException();
+                throw new InvalidPathException("DIR_NOT_FOUND");
             }
             catch (FileNotFoundException)
             {
