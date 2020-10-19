@@ -14,7 +14,7 @@ namespace HSEPeergrade2.Commands
 
         public override void Execute()
         {
-            DirectoryUtilities.MoveFileToDir(moveFromPath, moveToDirPath);
+            DirFileUtilities.MoveFileToDir(moveFromPath, moveToDirPath);
         }
 
         public override void TakeParameters(string line)

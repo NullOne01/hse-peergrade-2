@@ -12,8 +12,8 @@ namespace HSEPeergrade2.Commands
 
         public override void Execute()
         {
-            string[] dirNamesArr = DirectoryUtilities.GetDirectoriesNames(PathTracker.GetInstance().ToString());
-            string[] fileNamesArr = DirectoryUtilities.GetFileNames(PathTracker.GetInstance().ToString());
+            string[] dirNamesArr = DirFileUtilities.GetDirectoriesNames(PathTracker.GetInstance().ToString());
+            string[] fileNamesArr = DirFileUtilities.GetFileNames(PathTracker.GetInstance().ToString());
 
             MethodsOutput.PrintLocalStringLine("DIRECTORIES");
             if (dirNamesArr.Length > 0)
@@ -56,8 +56,8 @@ namespace HSEPeergrade2.Commands
             }
 
             // Checking if getting directories and files is possible.
-            DirectoryUtilities.GetDirectoriesNames(PathTracker.GetInstance().ToString());
-            DirectoryUtilities.GetFileNames(PathTracker.GetInstance().ToString());
+            DirFileUtilities.GetDirectoriesNames(PathTracker.GetInstance().ToString());
+            DirFileUtilities.GetFileNames(PathTracker.GetInstance().ToString());
 
             return true;
         }

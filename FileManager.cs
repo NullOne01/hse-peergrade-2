@@ -42,6 +42,7 @@ namespace HSEPeergrade2
             commandsDict.Add("print", new FilePrintCommand("print"));
             commandsDict.Add("copy", new FileCopyCommand("copy"));
             commandsDict.Add("move", new FileMoveCommand("move"));
+            commandsDict.Add("delete", new FileDeleteCommand("delete"));
             commandsDict.Add("switchLang", new LocalizationChangeCommand("switchLang"));
         }
 

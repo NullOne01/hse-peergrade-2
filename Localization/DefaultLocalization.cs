@@ -23,9 +23,10 @@ namespace HSEPeergrade2.Localization
                      "ls - show list of files and directories. " + Environment.NewLine + 
                      "print \"PATH_FILE\" - print file with encoding UTF-8" + Environment.NewLine +
                      "print \"PATH_FILE\" \"UTF-8/UTF-7/UTF-32/ASCII\" - " +
-                     "print file with chosen encoding(UTF-8/UTF-7/UTF-32/ASCII). " + Environment.NewLine +
+                     "print file with chosen encoding (UTF-8/UTF-7/UTF-32/ASCII). " + Environment.NewLine +
                      "copy \"PATH_FILE\" \"PATH_FILE\" - copy first file into second file. " + Environment.NewLine +
                      "move \"PATH_FILE\" \"PATH_DIR\" - move file into directory. " + Environment.NewLine +
+                     "delete \"PATH_FILE\" - delete file. " + Environment.NewLine +
                      "switchLang - switch localization between Russian and English (Additional functional)."
             },
             {"WRONG_ARGUMENTS", "Error: wrong arguments. "},

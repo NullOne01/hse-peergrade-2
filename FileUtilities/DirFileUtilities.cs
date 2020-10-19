@@ -1,11 +1,12 @@
 using System;
 using System.IO;
+using System.Net;
 using System.Security;
 using System.Text;
 
 namespace HSEPeergrade2.FileUtilities
 {
-    public static class DirectoryUtilities
+    public static class DirFileUtilities
     {
         /// <summary>
         /// Get all file names in directory (<paramref name="path"/>).
@@ -171,6 +172,44 @@ namespace HSEPeergrade2.FileUtilities
             catch (NotSupportedException)
             {
                 throw new InvalidPathException();
+            }
+        }
+
+        /// <summary>
+        /// Deletes file (<paramref name="path"/>.
+        /// </summary>
+        /// <param name="path"> Path of deleted file. </param>
+        /// <exception cref="InvalidPathException"> Localized invalid path exception. </exception>
+        /// <exception cref="AccessException"> Localized no access exception. </exception>
+        public static void DeleteFile(string path)
+        {
+            try
+            {
+                File.Delete(path);
+            }
+            catch (ArgumentException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                throw new InvalidPathException("DIR_NOT_FOUND");
+            }
+            catch (FileNotFoundException)
+            {
+                throw new InvalidPathException("FILE_NOT_FOUND");
+            }
+            catch (IOException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (NotSupportedException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw new AccessException();
             }
         }
     }

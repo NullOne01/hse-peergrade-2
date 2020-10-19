@@ -101,7 +101,7 @@ namespace HSEPeergrade2
         /// <param name="encoding"></param>
         public static void PrintFileEncoding(string path, Encoding encoding)
         {
-            string[] fileLines = DirectoryUtilities.FileReadLines(path, encoding);
+            string[] fileLines = DirFileUtilities.FileReadLines(path, encoding);
             PrintArray(fileLines);
             SkipLine();
         }
