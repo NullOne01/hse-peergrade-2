@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Security;
 using System.Text;
@@ -252,6 +254,21 @@ namespace HSEPeergrade2.FileUtilities
             {
                 throw new AccessException();
             }
+        }
+
+        /// <summary>
+        /// Concatenate files (<paramref name="paths"/>) and print them.
+        /// </summary>
+        /// <param name="paths"> Files' paths. </param>
+        public static void PrintConcatFiles(params string[] paths)
+        {
+            List<string> fileResList = new List<string>();
+            foreach (var path in paths)
+            {
+                fileResList.AddRange(FileReadLines(path, Encoding.UTF8));
+            }
+            
+            MethodsOutput.PrintArray(fileResList.ToArray());
         }
     }
 }

@@ -79,7 +79,7 @@ namespace HSEPeergrade2.Commands
             // Check if file exists.
             if (!PathTracker.IsFilePathValid(path))
             {
-                throw new InvalidPathException();
+                throw new InvalidPathException("FILE_NOT_FOUND");
             }
 
             return true;

@@ -11,6 +11,7 @@
         <e p="DirectoryChooseCommand.cs" t="Include" />
         <e p="DirectoryShowListCommand.cs" t="Include" />
         <e p="DisksShowCommand.cs" t="Include" />
+        <e p="FileConcatCommand.cs" t="Include" />
         <e p="FileCopyCommand.cs" t="Include" />
         <e p="FileCreateCommand.cs" t="Include" />
         <e p="FileDeleteCommand.cs" t="Include" />

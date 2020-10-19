@@ -30,6 +30,8 @@ namespace HSEPeergrade2.Localization
                      "create \"PATH_FILE\" \"SOME_TEXT\" - create file with text in it in UTF-8 encoding. " + Environment.NewLine +
                      "create \"PATH_FILE\" \"SOME_TEXT\" \"UTF-8/UTF-7/UTF-32/ASCII\" - " +
                         "create file with text in it in chosen encoding. " + Environment.NewLine +
+                     "concat \"PATH_FILE\" \"PATH_FILE\"... - concat files, " +
+                        "the amount of files is unlimited. " + Environment.NewLine +
                      "switchLang - switch localization between Russian and English (Additional functional)."
             },
             {"WRONG_ARGUMENTS", "Error: wrong arguments. "},
