@@ -8,8 +8,9 @@ namespace HSEPeergrade2.Commands
 {
     public class FilePrintCommand : Command
     {
-        private string filePath;
         private static readonly Encoding defaultEncoding = Encoding.UTF8;
+        
+        private string filePath;
         private Encoding currentEncoding = defaultEncoding;
 
         public FilePrintCommand(string name) : base(name)
@@ -23,15 +24,15 @@ namespace HSEPeergrade2.Commands
 
         public override void TakeParameters(string line)
         {
+            string[] arguments = ParsingUtilities.GetQuoteArguments(line);
             // First argument in quotes (path).
-            filePath = ParsingUtilities.GetQuoteArguments(line)[0];
+            filePath = arguments[0];
 
             // Read user's typed encoding. Otherwise use default encoding.
             if (ParsingUtilities.HasTwoParam(name, line))
             {
                 // Second argument in quotes (encoding).
-                string encodingStr = ParsingUtilities.GetQuoteArguments(line)[1];
-                currentEncoding = EncodingUtilities.dictStrEncoding[encodingStr];
+                currentEncoding = EncodingUtilities.dictStrEncoding[arguments[1]];
             }
             else
             {
@@ -60,16 +61,8 @@ namespace HSEPeergrade2.Commands
             {
                 string[] arguments = ParsingUtilities.GetQuoteArguments(line);
                 // User has not specified encoding.
-                if (ParsingUtilities.HasOneParam(name, line))
+                if (!ParsingUtilities.HasOneParam(name, line))
                 {
-                    if (arguments.Length != 1)
-                        return false;
-                }
-                else
-                {
-                    if (arguments.Length != 2)
-                        return false;
-
                     // Trying to find specified encoding.
                     var encodingStr = arguments[1];
                     if (!EncodingUtilities.dictStrEncoding.ContainsKey(encodingStr))

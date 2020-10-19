@@ -13,6 +13,9 @@ namespace HSEPeergrade2.FileUtilities
 
         //Example for regex: printFile "example.txt" "UTF-8"
         private static string fullRegStr2 = "^{0} \"[^\"]*\" \"[^\"]*\"$";
+        
+        //Example for regex: printFile "example.txt" "UTF-8" "EXAMPLE"
+        private static string fullRegStr3 = "^{0} \"[^\"]*\" \"[^\"]*\" \"[^\"]*\"$";
 
         //Example for regex: ""
         private static string quotesRegStr = "\".*?\"";
@@ -50,6 +53,18 @@ namespace HSEPeergrade2.FileUtilities
         public static bool HasTwoParam(string commandName, string line)
         {
             string modifiedStr = fullRegStr2.BetterFormat(commandName);
+            return Regex.IsMatch(line, modifiedStr);
+        }
+        
+        /// <summary>
+        /// Command passes only 3 parameters?
+        /// </summary>
+        /// <param name="commandName"> Command name. </param>
+        /// <param name="line"> Command line. </param>
+        /// <returns> True if command line passes only 3 parameters. Otherwise false. </returns>
+        public static bool HasThreeParam(string commandName, string line)
+        {
+            string modifiedStr = fullRegStr3.BetterFormat(commandName);
             return Regex.IsMatch(line, modifiedStr);
         }
 

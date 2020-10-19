@@ -212,5 +212,46 @@ namespace HSEPeergrade2.FileUtilities
                 throw new AccessException();
             }
         }
+
+        /// <summary>
+        /// Creates file (<paramref name="path"/>) and writes <paramref name="text"/>
+        /// into it using <paramref name="encoding"/> 
+        /// </summary>
+        /// <param name="path"> Path where file should be created. </param>
+        /// <param name="text"> Some text to write into the file. </param>
+        /// <param name="encoding"> Encoding that we use to write into the file. </param>
+        /// <exception cref="InvalidPathException"> Localized invalid path exception. </exception>
+        /// <exception cref="AccessException"> Localized no access exception. </exception>
+        public static void CreateAndWriteFile(string path, string text, Encoding encoding)
+        {
+            try
+            {
+                File.WriteAllText(path, text, encoding);
+            }
+            catch (ArgumentException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                throw new InvalidPathException("DIR_NOT_FOUND");
+            }
+            catch (FileNotFoundException)
+            {
+                throw new InvalidPathException("FILE_NOT_FOUND");
+            }
+            catch (IOException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (NotSupportedException)
+            {
+                throw new InvalidPathException();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw new AccessException();
+            }
+        }
     }
 }

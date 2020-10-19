@@ -12,6 +12,7 @@
         <e p="DirectoryShowListCommand.cs" t="Include" />
         <e p="DisksShowCommand.cs" t="Include" />
         <e p="FileCopyCommand.cs" t="Include" />
+        <e p="FileCreateCommand.cs" t="Include" />
         <e p="FileDeleteCommand.cs" t="Include" />
         <e p="FileMoveCommand.cs" t="Include" />
         <e p="FilePrintCommand.cs" t="Include" />
