@@ -41,6 +41,7 @@ namespace HSEPeergrade2.Commands
 
         public override bool ValidateParams(string line)
         {
+            // Print command can have 1 option or 2 options.
             try
             {
                 if (!(ParsingUtilities.HasOneParam(name, line) ||
@@ -82,6 +83,7 @@ namespace HSEPeergrade2.Commands
                 return false;
             }
 
+            // Check if file exists.
             if (!PathTracker.IsFilePathValid(path))
             {
                 throw new InvalidPathException();

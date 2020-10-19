@@ -23,6 +23,10 @@ namespace HSEPeergrade2
         /// </summary>
         public void Start()
         {
+            // Show help screen first.
+            CommandByArguments("help");
+            
+            // Program loop.
             ManagerLoop();
         }
 
@@ -37,6 +41,7 @@ namespace HSEPeergrade2
             commandsDict.Add("ls", new DirectoryShowListCommand("ls"));
             commandsDict.Add("print", new FilePrintCommand("print"));
             commandsDict.Add("copy", new FileCopyCommand("copy"));
+            commandsDict.Add("move", new FileMoveCommand("move"));
         }
 
         /// <summary>
@@ -48,6 +53,7 @@ namespace HSEPeergrade2
             {
                 ReadCommandLine();
                 MethodsOutput.SkipLine();
+                MethodsOutput.PrintLocalStringLine("COMMAND_SUCCESS");
                 MethodsOutput.PrintLocalStringLine("ESC_TO_EXIT");
                 MethodsOutput.SkipLine();
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
