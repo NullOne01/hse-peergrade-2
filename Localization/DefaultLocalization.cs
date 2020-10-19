@@ -29,8 +29,8 @@ namespace HSEPeergrade2.Localization
                      "delete \"PATH_FILE\" - delete file. " + Environment.NewLine +
                      "create \"PATH_FILE\" \"SOME_TEXT\" - create file with text in it in UTF-8 encoding. " + Environment.NewLine +
                      "create \"PATH_FILE\" \"SOME_TEXT\" \"UTF-8/UTF-7/UTF-32/ASCII\" - " +
-                        "create file with text in it in chosen encoding. " + Environment.NewLine +
-                     "concat \"PATH_FILE\" \"PATH_FILE\"... - concat files, " +
+                        "create file with text in it in chosen encoding (UTF-8/UTF-7/UTF-32/ASCII). " + Environment.NewLine +
+                     "concat \"PATH_FILE\" \"PATH_FILE\"... - concat and print files, " +
                         "the amount of files is unlimited. " + Environment.NewLine +
                      "switchLang - switch localization between Russian and English (Additional functional)."
             },
@@ -41,11 +41,11 @@ namespace HSEPeergrade2.Localization
             {"NO_COMMAND", "Error: unknown command. "},
             {"INVALID_PATH", "Error: invalid path. "},
             {"COPY_FILE_DOESNT_EXIST", "Error: copy file doesn't exist. "},
-            {"COPY_FILE_ALREADY_EXISTS", "Error: copy to file already exists. "},
+            {"COPY_FILE_ALREADY_EXISTS", "Error: file copied to already exists. "},
             {"MOVE_FILE_DOESNT_EXIST", "Error: move file doesn't exist. "},
-            {"MOVE_FILE_ALREADY_EXISTS", "Error: move to file already exists. "},
+            {"MOVE_FILE_ALREADY_EXISTS", "Error: file moved to already exists. "},
             {"FILE_ALREADY_EXISTS", "Error: file already exists. "},
-            {"ACCESS_PROBLEM", "Error: no permission. "},
+            {"ACCESS_PROBLEM", "Error: no access. "},
             {"ESC_TO_EXIT", "Press ESC to exit. Otherwise type anything... "},
             {"DIRECTORIES", "Directories: "},
             {"FILES", "Files: "},
