@@ -7,7 +7,7 @@ namespace HSEPeergrade2.Commands
     {
         private string moveFromPath;
         private string moveToDirPath;
-        
+
         public FileMoveCommand(string name) : base(name)
         {
         }

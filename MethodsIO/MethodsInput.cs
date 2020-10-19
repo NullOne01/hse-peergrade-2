@@ -7,7 +7,7 @@ namespace HSEPeergrade2
     public static class MethodsInput
     {
         /// <summary>
-        /// Default read line method.
+        ///     Default read line method.
         /// </summary>
         /// <returns> Read line. </returns>
         public static string ReadString()
@@ -16,26 +16,26 @@ namespace HSEPeergrade2
         }
 
         /// <summary>
-        /// Reading string line printing some <paramref name="prefix"/> before.
+        ///     Reading string line printing some <paramref name="prefix" /> before.
         /// </summary>
         /// <param name="prefix"> Some prefix to print. </param>
         /// <returns> Read line. </returns>
         public static string ReadStringPrefix(string prefix)
         {
             MethodsOutput.PrintString(prefix);
-            
+
             return Console.ReadLine();
         }
 
         /// <summary>
-        /// <inheritdoc cref="ReadStringPrefix"/>
-        /// Uses path as prefix.
+        ///     <inheritdoc cref="ReadStringPrefix" />
+        ///     Uses path as prefix.
         /// </summary>
         /// <returns> Read line. </returns>
         public static string ReadStringPrefixPath()
         {
-            return ReadStringPrefix(LocalizationManager.getInstance().
-                GetLocalizedFormat("CONSOLE_PATH_INPUT_PREFIX",PathTracker.GetInstance()));
+            return ReadStringPrefix(LocalizationManager.getInstance()
+                .GetLocalizedFormat("CONSOLE_PATH_INPUT_PREFIX", PathTracker.GetInstance()));
         }
     }
 }

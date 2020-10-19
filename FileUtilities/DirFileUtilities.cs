@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Security;
 using System.Text;
 
@@ -11,7 +9,7 @@ namespace HSEPeergrade2.FileUtilities
     public static class DirFileUtilities
     {
         /// <summary>
-        /// Get all file names in directory (<paramref name="path"/>).
+        ///     Get all file names in directory (<paramref name="path" />).
         /// </summary>
         /// <param name="path"> Path where we search for file names. </param>
         /// <returns> File names. </returns>
@@ -52,7 +50,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Get all directory names in directory (<paramref name="path"/>).
+        ///     Get all directory names in directory (<paramref name="path" />).
         /// </summary>
         /// <param name="path"> Path where we search for directory names. </param>
         /// <returns> Directory names. </returns>
@@ -93,7 +91,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Reads file (<paramref name="path"/>) by lines using <paramref name="encoding"/>.
+        ///     Reads file (<paramref name="path" />) by lines using <paramref name="encoding" />.
         /// </summary>
         /// <param name="path"> Path to file. </param>
         /// <param name="encoding"> Chosen encoding to read. </param>
@@ -133,7 +131,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Moves file (<paramref name="pathFromFile"/>) to directory (<paramref name="pathToDir"/>).
+        ///     Moves file (<paramref name="pathFromFile" />) to directory (<paramref name="pathToDir" />).
         /// </summary>
         /// <param name="pathFromFile"> File that will be moved. </param>
         /// <param name="pathToDir"> Destination folder to move file. </param>
@@ -178,7 +176,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Deletes file (<paramref name="path"/>.
+        ///     Deletes file (<paramref name="path" />.
         /// </summary>
         /// <param name="path"> Path of deleted file. </param>
         /// <exception cref="InvalidPathException"> Localized invalid path exception. </exception>
@@ -216,8 +214,8 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Creates file (<paramref name="path"/>) and writes <paramref name="text"/>
-        /// into it using <paramref name="encoding"/> 
+        ///     Creates file (<paramref name="path" />) and writes <paramref name="text" />
+        ///     into it using <paramref name="encoding" />
         /// </summary>
         /// <param name="path"> Path where file should be created. </param>
         /// <param name="text"> Some text to write into the file. </param>
@@ -257,7 +255,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Concatenate files (<paramref name="paths"/>) and print them.
+        ///     Concatenate files (<paramref name="paths" />) and print them.
         /// </summary>
         /// <param name="paths"> Files' paths. </param>
         public static void PrintConcatFiles(params string[] paths)

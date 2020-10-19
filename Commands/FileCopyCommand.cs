@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Net;
 using System.Text.RegularExpressions;
 using HSEPeergrade2.FileUtilities;
 
@@ -10,7 +9,7 @@ namespace HSEPeergrade2.Commands
     {
         private string copyFromPath;
         private string copyToPath;
-        
+
         public FileCopyCommand(string name) : base(name)
         {
         }

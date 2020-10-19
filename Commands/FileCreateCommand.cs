@@ -1,4 +1,3 @@
-using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using HSEPeergrade2.FileUtilities;
@@ -8,10 +7,10 @@ namespace HSEPeergrade2.Commands
     public class FileCreateCommand : Command
     {
         private static readonly Encoding defaultEncoding = Encoding.UTF8;
+        private Encoding currentEncoding = defaultEncoding;
 
         private string filePath;
         private string someText;
-        private Encoding currentEncoding = defaultEncoding;
 
         public FileCreateCommand(string name) : base(name)
         {
@@ -29,7 +28,9 @@ namespace HSEPeergrade2.Commands
             someText = arguments[1];
 
             // Selecting user's encoding.
-            currentEncoding = ParsingUtilities.HasThreeParam(name, line) ? EncodingUtilities.dictStrEncoding[arguments[2]] : defaultEncoding;
+            currentEncoding = ParsingUtilities.HasThreeParam(name, line)
+                ? EncodingUtilities.dictStrEncoding[arguments[2]]
+                : defaultEncoding;
         }
 
         public override bool ValidateParams(string line)
@@ -39,9 +40,7 @@ namespace HSEPeergrade2.Commands
             {
                 if (!(ParsingUtilities.HasTwoParam(name, line) ||
                       ParsingUtilities.HasThreeParam(name, line)))
-                {
                     return false;
-                }
             }
             catch (RegexMatchTimeoutException)
             {

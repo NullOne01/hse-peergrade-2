@@ -5,7 +5,7 @@ namespace HSEPeergrade2
         public InvalidPathException() : base("INVALID_PATH")
         {
         }
-        
+
         public InvalidPathException(string msg) : base(msg)
         {
         }

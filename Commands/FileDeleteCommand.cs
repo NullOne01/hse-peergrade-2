@@ -6,7 +6,7 @@ namespace HSEPeergrade2.Commands
     public class FileDeleteCommand : Command
     {
         private string filePath;
-        
+
         public FileDeleteCommand(string name) : base(name)
         {
         }

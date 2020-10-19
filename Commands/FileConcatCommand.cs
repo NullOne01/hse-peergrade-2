@@ -6,7 +6,7 @@ namespace HSEPeergrade2.Commands
     public class FileConcatCommand : Command
     {
         private string[] filePaths;
-        
+
         public FileConcatCommand(string name) : base(name)
         {
         }

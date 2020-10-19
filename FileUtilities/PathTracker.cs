@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Net;
-using System.Runtime.InteropServices.ComTypes;
-using HSEPeergrade2.Extensions;
 
 namespace HSEPeergrade2.FileUtilities
 {
@@ -13,7 +8,7 @@ namespace HSEPeergrade2.FileUtilities
         private static string currenPath = "";
 
         /// <summary>
-        /// Realization of Singleton pattern.
+        ///     Realization of Singleton pattern.
         /// </summary>
         /// <returns> Static object. </returns>
         public static PathTracker GetInstance()
@@ -25,7 +20,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Setting up default project location.
+        ///     Setting up default project location.
         /// </summary>
         public void SetUpProjectPath()
         {
@@ -33,7 +28,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Setting up relative or absolute path.
+        ///     Setting up relative or absolute path.
         /// </summary>
         /// <param name="path"> Relative or absolute path. </param>
         public void SetUpPath(string path)
@@ -42,7 +37,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Setting up absolute path.
+        ///     Setting up absolute path.
         /// </summary>
         /// <param name="path"> Absolute path. </param>
         public void SetUpFullPath(string path)
@@ -51,7 +46,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Check if directory exists by it's absolute path.
+        ///     Check if directory exists by it's absolute path.
         /// </summary>
         /// <param name="path"> Absolute path. </param>
         /// <returns> True if exists. False if it doesn't. </returns>
@@ -61,7 +56,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Check if directory exists by it's relative or absolute path.
+        ///     Check if directory exists by it's relative or absolute path.
         /// </summary>
         /// <param name="path"> Relative or absolute path. </param>
         /// <returns> True if exists. False if it doesn't. </returns>
@@ -70,9 +65,9 @@ namespace HSEPeergrade2.FileUtilities
             string newPath = CombineRelativePath(path);
             return Directory.Exists(newPath);
         }
-        
+
         /// <summary>
-        /// Check if file exists by it's relative or absolute path.
+        ///     Check if file exists by it's relative or absolute path.
         /// </summary>
         /// <param name="path"> Relative or absolute path. </param>
         /// <returns> True if exists. False if it doesn't. </returns>
@@ -83,7 +78,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Method to use relative paths.
+        ///     Method to use relative paths.
         /// </summary>
         /// <param name="relativePath"> Relative path. </param>
         /// <returns> Combined current path with the relative one. </returns>
@@ -91,9 +86,9 @@ namespace HSEPeergrade2.FileUtilities
         {
             return Path.GetFullPath(Path.Combine(currenPath, relativePath));
         }
-        
+
         /// <summary>
-        /// Returns current path.
+        ///     Returns current path.
         /// </summary>
         /// <returns> Current path. </returns>
         public override string ToString()

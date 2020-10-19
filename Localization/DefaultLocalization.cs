@@ -4,35 +4,42 @@ using System.Collections.Generic;
 namespace HSEPeergrade2.Localization
 {
     /// <summary>
-    /// Class of default localization text. English text.
+    ///     Class of default localization text. English text.
     /// </summary>
     public class DefaultLocalization
     {
-        public Dictionary<string, string> formatDict = new Dictionary<string, string>()
+        public Dictionary<string, string> formatDict = new Dictionary<string, string>
         {
             {"CONSOLE_PATH_INPUT_PREFIX", "{0}> "}
         };
-        
-        public Dictionary<string, string> localDict = new Dictionary<string, string>()
+
+        public Dictionary<string, string> localDict = new Dictionary<string, string>
         {
             {"TEST", "TEST. "},
             {"UNDEFINED", "Undefined. "},
-            {"HELP", "help - print this menu." + Environment.NewLine +
-                     "diskShow - show all disks. " + Environment.NewLine +
-                     "cd \"PATH_DIR\" - choose current directory. " + Environment.NewLine +
-                     "ls - show list of files and directories. " + Environment.NewLine + 
-                     "print \"PATH_FILE\" - print file with encoding UTF-8" + Environment.NewLine +
-                     "print \"PATH_FILE\" \"UTF-8/UTF-7/UTF-32/ASCII\" - " +
+            {
+                "HELP", "Some hints: 1) PATH_FILE means path to file. Example: \"KEK/kek.txt\". " + Environment.NewLine +
+                        "2) PATH_DIR means path to directory. Example: \"KEK\". " + Environment.NewLine +
+                        "3) You can use both absolute and relative paths." + Environment.NewLine +
+                        "" + Environment.NewLine + 
+                        "help - print this menu." + Environment.NewLine +
+                        "diskShow - show all disks. " + Environment.NewLine +
+                        "cd \"PATH_DIR\" - choose current directory. " + Environment.NewLine +
+                        "ls - show list of files and directories. " + Environment.NewLine +
+                        "print \"PATH_FILE\" - print file with encoding UTF-8" + Environment.NewLine +
+                        "print \"PATH_FILE\" \"UTF-8/UTF-7/UTF-32/ASCII\" - " +
                         "print file with chosen encoding (UTF-8/UTF-7/UTF-32/ASCII). " + Environment.NewLine +
-                     "copy \"PATH_FILE\" \"PATH_FILE\" - copy first file into second file. " + Environment.NewLine +
-                     "move \"PATH_FILE\" \"PATH_DIR\" - move file into directory. " + Environment.NewLine +
-                     "delete \"PATH_FILE\" - delete file. " + Environment.NewLine +
-                     "create \"PATH_FILE\" \"SOME_TEXT\" - create file with text in it in UTF-8 encoding. " + Environment.NewLine +
-                     "create \"PATH_FILE\" \"SOME_TEXT\" \"UTF-8/UTF-7/UTF-32/ASCII\" - " +
-                        "create file with text in it in chosen encoding (UTF-8/UTF-7/UTF-32/ASCII). " + Environment.NewLine +
-                     "concat \"PATH_FILE\" \"PATH_FILE\"... - concat and print files, " +
+                        "copy \"PATH_FILE\" \"PATH_FILE\" - copy first file into second file. " + Environment.NewLine +
+                        "move \"PATH_FILE\" \"PATH_DIR\" - move file into directory. " + Environment.NewLine +
+                        "delete \"PATH_FILE\" - delete file. " + Environment.NewLine +
+                        "create \"PATH_FILE\" \"SOME_TEXT\" - create file with text in it in UTF-8 encoding. " +
+                        Environment.NewLine +
+                        "create \"PATH_FILE\" \"SOME_TEXT\" \"UTF-8/UTF-7/UTF-32/ASCII\" - " +
+                        "create file with text in it in chosen encoding (UTF-8/UTF-7/UTF-32/ASCII). " +
+                        Environment.NewLine +
+                        "concat \"PATH_FILE\" \"PATH_FILE\"... - concat and print files, " +
                         "the amount of files is unlimited. " + Environment.NewLine +
-                     "switchLang - switch localization between Russian and English (Additional functional)."
+                        "switchLang - switch localization between Russian and English (Additional functional)."
             },
             {"WRONG_ARGUMENTS", "Error: wrong arguments. "},
             {"WRONG_ARGUMENTS_IO", "Error: directory is invalid."},

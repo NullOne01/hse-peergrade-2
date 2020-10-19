@@ -6,9 +6,9 @@ namespace HSEPeergrade2.FileUtilities
     public class EncodingUtilities
     {
         /// <summary>
-        /// Available encodings.
+        ///     Available encodings.
         /// </summary>
-        public static Dictionary<string, Encoding> dictStrEncoding = new Dictionary<string, Encoding>()
+        public static Dictionary<string, Encoding> dictStrEncoding = new Dictionary<string, Encoding>
         {
             {"UTF-8", Encoding.UTF8},
             {"UTF-7", Encoding.UTF7},

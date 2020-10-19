@@ -6,25 +6,25 @@ namespace HSEPeergrade2.FileUtilities
     public class ParsingUtilities
     {
         //Example for regex: printFile
-        private static string fullRegStr0 = "^{0}$";
-        
+        private static readonly string fullRegStr0 = "^{0}$";
+
         //Example for regex: printFile "example.txt"
-        private static string fullRegStr1 = "^{0} \"[^\"]*\"$";
+        private static readonly string fullRegStr1 = "^{0} \"[^\"]*\"$";
 
         //Example for regex: printFile "example.txt" "UTF-8"
-        private static string fullRegStr2 = "^{0} \"[^\"]*\" \"[^\"]*\"$";
-        
+        private static readonly string fullRegStr2 = "^{0} \"[^\"]*\" \"[^\"]*\"$";
+
         //Example for regex: printFile "example.txt" "UTF-8" "EXAMPLE"
-        private static string fullRegStr3 = "^{0} \"[^\"]*\" \"[^\"]*\" \"[^\"]*\"$";
-        
+        private static readonly string fullRegStr3 = "^{0} \"[^\"]*\" \"[^\"]*\" \"[^\"]*\"$";
+
         //Example for regex: printFile "example.txt" "UTF-8" "EXAMPLE" "EXAMPLE" "EXAMPLE"...
-        private static string fullRegAny = "^{0}( \"[^\"]*\")+$";
+        private static readonly string fullRegAny = "^{0}( \"[^\"]*\")+$";
 
         //Example for regex: ""
-        private static string quotesRegStr = "\".*?\"";
+        private static readonly string quotesRegStr = "\".*?\"";
 
         /// <summary>
-        /// Command passes no parameters?
+        ///     Command passes no parameters?
         /// </summary>
         /// <param name="commandName"> Command name. </param>
         /// <param name="line"> Command line. </param>
@@ -34,9 +34,9 @@ namespace HSEPeergrade2.FileUtilities
             string modifiedStr = fullRegStr0.BetterFormat(commandName);
             return Regex.IsMatch(line, modifiedStr);
         }
-        
+
         /// <summary>
-        /// Command passes only 1 parameter?
+        ///     Command passes only 1 parameter?
         /// </summary>
         /// <param name="commandName"> Command name. </param>
         /// <param name="line"> Command line. </param>
@@ -48,7 +48,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Command passes only 2 parameters?
+        ///     Command passes only 2 parameters?
         /// </summary>
         /// <param name="commandName"> Command name. </param>
         /// <param name="line"> Command line. </param>
@@ -58,9 +58,9 @@ namespace HSEPeergrade2.FileUtilities
             string modifiedStr = fullRegStr2.BetterFormat(commandName);
             return Regex.IsMatch(line, modifiedStr);
         }
-        
+
         /// <summary>
-        /// Command passes only 3 parameters?
+        ///     Command passes only 3 parameters?
         /// </summary>
         /// <param name="commandName"> Command name. </param>
         /// <param name="line"> Command line. </param>
@@ -70,9 +70,9 @@ namespace HSEPeergrade2.FileUtilities
             string modifiedStr = fullRegStr3.BetterFormat(commandName);
             return Regex.IsMatch(line, modifiedStr);
         }
-        
+
         /// <summary>
-        /// Command passes any parameters?
+        ///     Command passes any parameters?
         /// </summary>
         /// <param name="commandName"> Command name. </param>
         /// <param name="line"> Command line. </param>
@@ -84,7 +84,7 @@ namespace HSEPeergrade2.FileUtilities
         }
 
         /// <summary>
-        /// Get list of arguments passed in <paramref name="line"/> in quotes.
+        ///     Get list of arguments passed in <paramref name="line" /> in quotes.
         /// </summary>
         /// <param name="line"> Command line. </param>
         /// <returns> List of arguments in quotes. </returns>
@@ -99,9 +99,9 @@ namespace HSEPeergrade2.FileUtilities
 
             return res;
         }
-        
+
         /// <summary>
-        /// Get 1 argument passed in <paramref name="line"/> in quotes.
+        ///     Get 1 argument passed in <paramref name="line" /> in quotes.
         /// </summary>
         /// <param name="line"> Command line. </param>
         /// <returns> One argument in quotes. </returns>

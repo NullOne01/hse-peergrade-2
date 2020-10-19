@@ -4,7 +4,6 @@ namespace HSEPeergrade2
     {
         public InvalidEncodingException() : base("INVALID_ENCODING")
         {
-            
         }
     }
 }

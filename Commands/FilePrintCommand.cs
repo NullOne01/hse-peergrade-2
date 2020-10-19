@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using HSEPeergrade2.Extensions;
 using HSEPeergrade2.FileUtilities;
 
 namespace HSEPeergrade2.Commands
@@ -9,9 +7,9 @@ namespace HSEPeergrade2.Commands
     public class FilePrintCommand : Command
     {
         private static readonly Encoding defaultEncoding = Encoding.UTF8;
-        
-        private string filePath;
         private Encoding currentEncoding = defaultEncoding;
+
+        private string filePath;
 
         public FilePrintCommand(string name) : base(name)
         {

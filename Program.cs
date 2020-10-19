@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace HSEPeergrade2
+﻿namespace HSEPeergrade2
 {
     class Program
     {

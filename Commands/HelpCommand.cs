@@ -1,6 +1,5 @@
 using System.Text.RegularExpressions;
 using HSEPeergrade2.FileUtilities;
-using HSEPeergrade2.Localization;
 
 namespace HSEPeergrade2
 {
@@ -8,7 +7,6 @@ namespace HSEPeergrade2
     {
         public HelpCommand(string name) : base(name)
         {
-            
         }
 
         public override void Execute()
@@ -18,7 +16,6 @@ namespace HSEPeergrade2
 
         public override void TakeParameters(string line)
         {
-            
         }
 
         public override bool ValidateParams(string line)

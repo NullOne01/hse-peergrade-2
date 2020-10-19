@@ -1,16 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using HSEPeergrade2.Commands;
 using HSEPeergrade2.Exceptions;
 using HSEPeergrade2.FileUtilities;
-using HSEPeergrade2.Localization;
 
 namespace HSEPeergrade2
 {
     public class FileManager
     {
-        private Dictionary<string, Command> commandsDict = new Dictionary<string, Command>();
+        private readonly Dictionary<string, Command> commandsDict = new Dictionary<string, Command>();
 
         public FileManager()
         {
@@ -19,19 +17,19 @@ namespace HSEPeergrade2
         }
 
         /// <summary>
-        /// The start of the program.
+        ///     The start of the program.
         /// </summary>
         public void Start()
         {
             // Show help screen first.
             CommandByArguments("help");
-            
+
             // Program loop.
             ManagerLoop();
         }
 
         /// <summary>
-        /// Initializing a list of commands to use.
+        ///     Initializing a list of commands to use.
         /// </summary>
         private void SetUpCommands()
         {
@@ -49,7 +47,7 @@ namespace HSEPeergrade2
         }
 
         /// <summary>
-        /// Reading commands until user wants to quit.
+        ///     Reading commands until user wants to quit.
         /// </summary>
         private void ManagerLoop()
         {
@@ -62,15 +60,14 @@ namespace HSEPeergrade2
                 MethodsOutput.SkipLine();
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
         }
-        
+
         /// <summary>
-        /// Loop for reading command line until recognize. 
+        ///     Loop for reading command line until recognize.
         /// </summary>
         private void ReadCommandLine()
         {
             bool isInLoop = true;
             while (isInLoop)
-            {
                 try
                 {
                     CommandByArguments(MethodsInput.ReadStringPrefixPath());
@@ -81,11 +78,10 @@ namespace HSEPeergrade2
                     MethodsOutput.PrintStringLine(e.Message);
                     isInLoop = true;
                 }
-            }
         }
 
         /// <summary>
-        /// Detect command type. Pass params and execute command.
+        ///     Detect command type. Pass params and execute command.
         /// </summary>
         /// <param name="line">Command line.</param>
         /// <exception cref="NoCommandException">No command named like that.</exception>
