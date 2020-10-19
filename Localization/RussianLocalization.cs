@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+
+namespace HSEPeergrade2.Localization
+{
+    public class RussianLocalization : DefaultLocalization
+    {
+        //TODO: Translate all this shit.
+        public RussianLocalization()
+        {
+            localDict = new Dictionary<string, string>()
+            {
+                {"TEST", "TEST. "},
+                {"UNDEFINED", "Undefined. "},
+                {
+                    "HELP", "help - выводит это меню." + Environment.NewLine +
+                            "diskShow - show all disks. " + Environment.NewLine +
+                            "cd \"PATH_DIR\" - choose current directory. " + Environment.NewLine +
+                            "ls - show list of files and directories. " + Environment.NewLine +
+                            "print \"PATH_FILE\" - print file with encoding UTF-8" + Environment.NewLine +
+                            "print \"PATH_FILE\" \"UTF-8/UTF-7/UTF-32/ASCII\" - " +
+                            "print file with chosen encoding(UTF-8/UTF-7/UTF-32/ASCII). " + Environment.NewLine +
+                            "copy \"PATH_FILE\" \"PATH_FILE\" - copy first file into second file. " +
+                            Environment.NewLine +
+                            "move \"PATH_FILE\" \"PATH_DIR\" - move file into directory. " + Environment.NewLine +
+                            "switchLang - switch localization between Russian and English (Additional functional)."
+                },
+                {"WRONG_ARGUMENTS", "Error: wrong arguments. "},
+                {"WRONG_ARGUMENTS_IO", "Error: directory is invalid."},
+                {"FILE_NOT_FOUND", "Error: file is not found."},
+                {"DIR_NOT_FOUND", "Error: directory is not found."},
+                {"NO_COMMAND", "Error: unknown command. "},
+                {"INVALID_PATH", "Error: invalid path. "},
+                {"COPY_FILE_DOESNT_EXIST", "Error: copy file doesn't exist. "},
+                {"COPY_FILE_ALREADY_EXISTS", "Error: copy to file already exists. "},
+                {"MOVE_FILE_DOESNT_EXIST", "Error: move file doesn't exist. "},
+                {"MOVE_FILE_ALREADY_EXISTS", "Error: move to file already exists. "},
+                {"ACCESS_PROBLEM", "Error: no permission. "},
+                {"ESC_TO_EXIT", "Press ESC to exit. Otherwise type anything... "},
+                {"DIRECTORIES", "Directories: "},
+                {"FILES", "Files: "},
+                {"NO_DIRECTORIES", "No directories here. "},
+                {"NO_FILES", "No files here. "},
+                {"INVALID_ENCODING", "Error: unknown encoding. "},
+                {"COMMAND_SUCCESS", "The command completed successfully. "}
+            };
+        }
+    }
+}

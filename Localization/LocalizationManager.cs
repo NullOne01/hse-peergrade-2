@@ -7,7 +7,13 @@ namespace HSEPeergrade2.Localization
     public class LocalizationManager
     {
         private static LocalizationManager instance;
-        private DefaultLocalization[] localizations = new[] {new DefaultLocalization()};
+
+        private DefaultLocalization[] localizations = new[]
+        {
+            new DefaultLocalization(),
+            new RussianLocalization()
+        };
+
         private int currentLocalNum = 0;
 
         /// <summary>
@@ -18,7 +24,7 @@ namespace HSEPeergrade2.Localization
         {
             if (instance == null)
                 instance = new LocalizationManager();
-            
+
             return instance;
         }
 
@@ -32,6 +38,14 @@ namespace HSEPeergrade2.Localization
         }
 
         /// <summary>
+        /// Switch between Russian and English localizations.
+        /// </summary>
+        public void SwitchLocalization()
+        {
+            SetLocalization( currentLocalNum == 0 ? 1: 0);
+        }
+
+        /// <summary>
         /// Get a localized value by it's <paramref name="key"/>
         /// </summary>
         /// <param name="key"> Key of localized value. </param>
@@ -41,7 +55,7 @@ namespace HSEPeergrade2.Localization
         {
             return localizations[currentLocalNum].localDict[key].BetterFormat(argsFormat);
         }
-        
+
         /// <summary>
         /// Get a localized format by it's <paramref name="key"/>
         /// </summary>

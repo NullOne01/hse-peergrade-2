@@ -41,6 +41,7 @@
       <e p="Localization" t="Include">
         <e p="DefaultLocalization.cs" t="Include" />
         <e p="LocalizationManager.cs" t="Include" />
+        <e p="RussianLocalization.cs" t="Include" />
       </e>
       <e p="MethodsIO" t="Include">
         <e p="MethodsGeneral.cs" t="Include" />
