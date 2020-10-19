@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            // Addional function: we can switch between Russian and English localizations.
+            // Additional function: we can switch between Russian and English localizations.
             // Command: switchLang.
             FileManager fileManager = new FileManager();
             fileManager.Start();
