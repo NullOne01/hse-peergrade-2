@@ -1,12 +1,13 @@
-﻿using System;
-
-namespace HSEPeergrade2
+﻿namespace HSEPeergrade2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Additional function: we can switch between Russian and English localizations.
+            // Command: switchLang.
+            FileManager fileManager = new FileManager();
+            fileManager.Start();
         }
     }
 }
